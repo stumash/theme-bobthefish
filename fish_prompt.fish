@@ -1033,6 +1033,9 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
     # Start each line with a blank slate
     set -l __bobthefish_current_bg
 
+    # New line
+    echo -ens '\n'
+
     # Status flags
     __bobthefish_prompt_status $last_status
 
