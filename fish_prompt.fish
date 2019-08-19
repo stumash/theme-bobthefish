@@ -387,6 +387,18 @@ function __bobthefish_finish_segments -S -d 'Close open prompt segments'
         end
     else if [ "$theme_newline_cursor" = 'clean' ]
         echo -ens "\n"
+    else if [ "$theme_newline_cursor" = 'endvi' ]
+        echo -ens "\n"
+        set __bobthefish_current_bg $segment_basename_color
+        __bobthefish_prompt_vi
+        set path_bg $color_path[1]
+        set path_fg $color_path[2]
+        set_color -b $path_bg
+        set_color $__bobthefish_current_bg
+        echo -ns $right_black_arrow_glyph'  '
+        set_color -b normal
+        set_color $path_bg
+        echo -ns $right_black_arrow_glyph' '
     end
 
     set_color normal
@@ -1021,9 +1033,8 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
     # Start each line with a blank slate
     set -l __bobthefish_current_bg
 
-    # Status flags and input mode
+    # Status flags
     __bobthefish_prompt_status $last_status
-    __bobthefish_prompt_vi
 
     # Containers and VMs
     __bobthefish_prompt_vagrant
