@@ -393,11 +393,8 @@ function __bobthefish_finish_segments -S -d 'Close open prompt segments'
         __bobthefish_prompt_vi
         set path_bg $color_path[1]
         set path_fg $color_path[2]
-        set_color -b $path_bg
-        set_color $__bobthefish_current_bg
-        echo -ns $right_black_arrow_glyph'  '
         set_color -b normal
-        set_color $path_bg
+        set_color $__bobthefish_current_bg
         echo -ns $right_black_arrow_glyph' '
     end
 
